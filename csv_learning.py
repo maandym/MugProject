@@ -13,7 +13,7 @@ print "\n"
 import fractions
 
 import csv
-with open("vanillacake.csv") as csvin:
+with open("VanillaCake.csv") as csvin:
 	reader = csv.DictReader(csvin)
 	ingredients = []
 	for row in reader:
