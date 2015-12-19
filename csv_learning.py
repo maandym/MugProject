@@ -17,9 +17,9 @@ with open("vanillacake.csv") as csvin:
 	reader = csv.DictReader(csvin)
 	ingredients = []
 	for row in reader:
-		print float(row["Measurement"]), row["Unit"], row["Ingredients"]
-		ingredient_row = {"ingredients": row["Ingredients"], "unit": row["Unit"], "measurement": float(row["Measurement"])}
-		ingredients.append(ingredient_row)
+		print float(row["Measurement"]), row["Unit"], row["Ingredient"]
+		ingredient_row = {"ingredient": row["Ingredient"], "unit": row["Unit"], "measurement": float(row["Measurement"])}
+ 		ingredients.append(ingredient_row)
 
 #conversion to grams
 
@@ -64,20 +64,20 @@ print "\n"
 
 #conversion back to cups
 
-for newrow in ingredients:
-	# if newrow["unit"]==str("grams") and newrow["measurement"]<6.0:
-	# 	newrow["measurement"]=newrow["measurement"]/14
-	# 	newrow["unit"]="t"
-	# elif newrow["unit"]==str("grams") and newrow["measurement"]<28.0:
-	# 	newrow["measurement"]=newrow["measurement"]/5
-	# 	newrow["unit"]="T"
-	# 	newrow["unit"]="grams"
-	# elif newrow["unit"]==str("grams") and newrow["measurement"]>29.0:
-	# 	newrow["measurement"]=newrow["measurement"]/225
-	# 	newrow["unit"]="c"
-	# else:
-	# 	print "Mandy, something went horribly wrong!"
-	print newrow
+# for newrow in ingredients:
+# 	if newrow["unit"]==str("grams") and newrow["measurement"]<6.0:
+# 		newrow["measurement"]=newrow["measurement"]/14
+# 		newrow["unit"]="t"
+# 	elif newrow["unit"]==str("grams") and newrow["measurement"]<28.0:
+# 		newrow["measurement"]=newrow["measurement"]/5
+# 		newrow["unit"]="T"
+# 		newrow["unit"]="grams"
+# 	elif newrow["unit"]==str("grams") and newrow["measurement"]>29.0:
+# 		newrow["measurement"]=newrow["measurement"]/225
+# 		newrow["unit"]="c"
+# 	else:
+# 		print "Mandy, something went horribly wrong!"
+# 	print newrow
 
 # for finalamounts in ingredients:
 # 	if finalamounts["unit"]==str("grams")>29:
