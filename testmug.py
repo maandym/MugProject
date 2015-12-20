@@ -22,24 +22,55 @@ def csv_recipeDict():
 		recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
-			recipe_dic[row["Ingredients"]] = row["Measurement"], row["Unit"]
+			recipe_dic[row["Ingredient"]] = float(row["Measurement"]), row["Unit"]
 			recipe_dic["directions"] = recipe_dic["directions"] + row["Directions"] + " "
 	 		
-			
+		
+	print recipe_dic	
  	return recipe_dic
 recipe_dic= csv_recipeDict()
 
-def calculate_grams(dictionary):
+def convert_to_grams(dictionary):
+	grams_dict = {}
+	for keys, values in recipe_dic.items():
+		if keys != "directions":
+			if values[1]=="c":
+				gram_values=values[0]*225
+			elif values[1]=="T":
+				gram_values=values[0]*14
+			elif values[1]=="t":
+				gram_values=values[0]*5
+			elif values[1]=="singles":
+				gram_values=(values[0]*14)*4
+			else:
+				print values
+		grams_dict[keys] = gram_values
+	
+	return grams_dict
+
+grams_dict = convert_to_grams(recipe_dic)
+			
+			
+
+
+def total_grams(dictionary):
 	total_grams = 0
-	for ingredients, values in recipe_dic.items():
+	for ingredients, values in grams_dict.items():
 		if ingredients != "directions":
-			measurement = float(values[0])
+			print ingredients
+			measurement = values
 			total_grams += measurement
 	
 	return total_grams
 
-print calculate_grams(recipe_dic)
 
+total_grams = total_grams(recipe_dic)
+
+def multiplier(dictionary):
+	multiplier = 210/total_grams
+	return multiplier
+
+print multiplier(total_grams)
 	
 	
 # 	print type(row)
