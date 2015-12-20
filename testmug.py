@@ -22,10 +22,10 @@ def csv_recipeDict():
 		recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
-			recipe_dic[row["Ingredients"]] = row["Measurement"], row["Unit"]
+			recipe_dic[row["Ingredient"]] = row["Measurement"], row["Unit"]
 			recipe_dic["directions"] = recipe_dic["directions"] + row["Directions"] + " "
 	 		
-			
+	print recipe_dic		
  	return recipe_dic
 recipe_dic= csv_recipeDict()
 
