@@ -1,12 +1,12 @@
 #instructions
 
-print "***************************************"
-print
-print
-print
-print
-print "***************************************"
-print "\n"
+# print "***************************************"
+# print
+# print
+# print
+# print
+# print "***************************************"
+# print "\n"
 
 #import recipe
 
@@ -27,6 +27,10 @@ def csv_recipeDict():
 	
 	print recipe_dic		
  	return recipe_dic
+
+
+#convert to grams
+
 recipe_dic= csv_recipeDict()
 
 def convert_to_grams(dictionary):
@@ -43,20 +47,25 @@ def convert_to_grams(dictionary):
 				gram_values=(values[0]*14)*4
 			else:
 				print values
+		if values != "directions":
+			if values[1]=="c" or values[1]=="T" or values[1]=="t" or values[1]=="singles":
+				values[1]=="grams"
 		grams_dict[keys] = gram_values
-	
+		# grams_dict[values] = gram_unit
+# COME BACK LATER AND ADD GRAMS TO THE DICTIONARY
+# FIX DIRECTIONS SECTION
 	return grams_dict
 
 grams_dict = convert_to_grams(recipe_dic)
+print grams_dict	
 			
-			
-
+#sum all grams
 
 def total_grams(dictionary):
 	total_grams = 0
 	for ingredients, values in grams_dict.items():
 		if ingredients != "directions":
-			print ingredients
+			# print ingredients
 			measurement = values
 			total_grams += measurement
 	
@@ -64,12 +73,56 @@ def total_grams(dictionary):
 
 
 total_grams = total_grams(recipe_dic)
+# print total_grams
+
+
+#find the multiplier
 
 def multiplier(dictionary):
 	multiplier = 210/total_grams
 	return multiplier
 
 print multiplier(total_grams)
+
+
+#mug size amount in grams
+
+def mug(dictionary):
+	mug = {}
+	mug_size = 0
+	for keys, values in grams_dict.items():
+		# if keys != "directions":
+		mug_size=values[1]*multiplier
+	print mug
+	return mug
+
+
+
+# mug_size = mug_size(recipe_dic)
+# print mug_size
+
+
+#convert back to imperial
+
+# def final_conversion(dictionary):
+# 	final_dict = {}
+# 	for keys, values in recipe_dic.items():
+# 		if keys != "directions":
+# 			if values[1]=="grams" and values[1]<6.0:
+# 				gram_values=values[0]*multiplier
+# 			elif values[1]=="grams" and values[1]<28.0:
+# 				gram_values=values[0]*multiplier
+# 			elif values[1]=="grams" and values[1]>28.1:
+# 				gram_values=values[0]*multiplier
+# 			else:
+# 				print values
+# 		final_dict[keys] = final_values
+	
+# 	return final_dict
+
+# final_dict = final_conversion(recipe_dic)
+			
+
 	
 	
 # 	print type(row)
