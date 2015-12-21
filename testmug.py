@@ -19,11 +19,12 @@ def csv_recipeDict():
 	with open("VanillaCake.csv", "rb") as csvin:
 		reader = csv.DictReader(csvin)
 		
-		recipe_dic = { "directions": ""}
+		recipe_dic = { }
+		# recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
 			recipe_dic[row["Ingredient"]] = float(row["Measurement"]), row["Unit"]
-			recipe_dic["directions"] = recipe_dic["directions"] + row["Directions"] + " "
+			recipe_dic["directions"] = row["Directions"] + " ",
 	
 	print recipe_dic		
  	return recipe_dic
@@ -48,9 +49,8 @@ def convert_to_grams(dictionary):
 			else:
 				print values
 		if values != "directions":
-			if values[1]=="c" or values[1]=="T" or values[1]=="t" or values[1]=="singles":
-				values[1]=="grams"
-		grams_dict[keys] = gram_values
+			grams = "grams"
+		grams_dict[keys] = gram_values, grams
 		# grams_dict[values] = gram_unit
 # COME BACK LATER AND ADD GRAMS TO THE DICTIONARY
 # FIX DIRECTIONS SECTION
@@ -66,7 +66,7 @@ def total_grams(dictionary):
 	for ingredients, values in grams_dict.items():
 		if ingredients != "directions":
 			# print ingredients
-			measurement = values
+			measurement = values[0]
 			total_grams += measurement
 	
 	return total_grams
@@ -82,24 +82,26 @@ def multiplier(dictionary):
 	multiplier = 210/total_grams
 	return multiplier
 
-print multiplier(total_grams)
+multiplier = multiplier(total_grams)
 
 
 #mug size amount in grams
 
 def mug(dictionary):
 	mug = {}
-	mug_size = 0
+	# mug_size = 0
 	for keys, values in grams_dict.items():
-		# if keys != "directions":
-		mug_size=values[1]*multiplier
-	print mug
+		if keys != "directions":
+			mug_values = values[0]*multiplier
+			mug[keys] = mug_values
+		else:
+			pass
+	# 	mug[keys]=values[0]*multiplier
+	# print mug
 	return mug
 
+print mug(grams_dict)
 
-
-# mug_size = mug_size(recipe_dic)
-# print mug_size
 
 
 #convert back to imperial
