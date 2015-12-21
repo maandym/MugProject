@@ -11,6 +11,25 @@ msg = """
 #conditionals for users
 
 
+option = 0
+while option <1 :
+    option = int(raw_input("Please choose a cake recipe: "))
+    print option
+    print "Sorry, I didn't understand that."
+    print "You did not choose a valid option. Please try again."
+else:
+    if option==1:
+        print "You have chosen to make the Vanilla Cake, here is the recipe:"
+        cake = "VanillaCake.csv"
+    if option==2: 
+    	print "You have chosen to make the Chocolate Cake, here is the recipe:"
+    if option==3: 
+    	print "You have chosen to make the Red Velvet Cake, here is the recipe:"
+    if option==4: 
+    	print "You have chosen to make the Butter Cake, here is the recipe:"
+    if option==5: 
+        print "You have chosen to make the Pound Cake, here is the recipe:"
+    	
 
 
 
@@ -22,7 +41,7 @@ import csv
 
 def csv_recipeDict():
 	
-	with open("VanillaCake.csv", "rb") as csvin:
+	with open(cake, "rb") as csvin:
 		reader = csv.DictReader(csvin)
 		
 		recipe_dic = { "directions": ""}
