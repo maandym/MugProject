@@ -51,8 +51,6 @@ def convert_to_grams(dictionary):
 		if values != "directions":
 			grams = "grams"
 		grams_dict[keys] = gram_values, grams
-		# grams_dict[values] = gram_unit
-# COME BACK LATER AND ADD GRAMS TO THE DICTIONARY
 # FIX DIRECTIONS SECTION
 	return grams_dict
 
@@ -89,7 +87,6 @@ multiplier = multiplier(total_grams)
 
 def mug(dictionary):
 	mug = {}
-	# mug_size = 0
 	for keys, values in grams_dict.items():
 		if keys != "directions":
 			mug_values = values[0]*multiplier
@@ -104,97 +101,20 @@ print mug(grams_dict)
 
 #convert back to imperial
 
-def final_conversion(dictionary):
-	final_dict = {}
-	for keys, values in recipe_dic.items():
-		if keys != "directions":
-			if values[1]=="grams" and values[1]<6.0:
-				gram_values=values[0]*multiplier
-			elif values[1]=="grams" and values[1]<28.0:
-				gram_values=values[0]*multiplier
-			elif values[1]=="grams" and values[1]>28.1:
-				gram_values=values[0]*multiplier
-			else:
-				print values
-		final_dict[keys] = final_values
+# def final_conversion(dictionary):
+# 	final_dict = {}
+# 	for keys, values in recipe_dic.items():
+# 		if keys != "directions":
+# 			if values[1]=="grams" and values[1]<6.0:
+# 				gram_values=values[0]*multiplier
+# 			elif values[1]=="grams" and values[1]<28.0:
+# 				gram_values=values[0]*multiplier
+# 			elif values[1]=="grams" and values[1]>28.1:
+# 				gram_values=values[0]*multiplier
+# 			else:
+# 				print values
+# 		final_dict[keys] = final_values
 	
-	return final_dict
+# 	return final_dict
 
-final_dict = final_conversion(recipe_dic)
-			
-
-	
-	
-# 	print type(row)
-# 	print type(ingredient_row)
-# 	#print type(ingredients)
-
-# #conversion to grams
-
-# for key, value in ingredient_row.items():
-# 	if ingredient_row["unit"]=="c":
-# 		ingredient_row["measurement"]=225*ingredient_row["measurement"]
-# 		ingredient_row["unit"]="grams"
-# 	elif ingredient_row["unit"]=="T":
-# 		ingredient_row["measurement"]=14*ingredient_row["measurement"]
-# 		ingredient_row["unit"]="grams"
-# 	elif ingredient_row["unit"]=="t":
-# 		ingredient_row["measurement"]=5*ingredient_row["measurement"]
-# 		ingredient_row["unit"]="grams"
-# 	elif ingredient_row["unit"]=="singles":
-# 		ingredient_row["measurement"]=(14*ingredient_row["measurement"])*4
-# 		ingredient_row["unit"]="grams"
-# 	else:
-# 		print "Go away."
-# 	print row
-
-# print "\n"
-
-# #finding the multiplier
-
-
-# multiplier = 210/total_grams
-# print multiplier
-
-# print "\n"
-
-# #mug size amount in grams
-
-# for newrow in ingredient_row:
-# 	newrow["measurement"]=newrow["measurement"]*multiplier
-# print newrow
-
-# print "\n"
-
-# #conversion back to cups
-
-# for newrow in ingredient_row:
-# 	# if newrow["unit"]==str("grams") and newrow["measurement"]<6.0:
-# 	# 	newrow["measurement"]=newrow["measurement"]/14
-# 	# 	newrow["unit"]="t"
-# 	# elif newrow["unit"]==str("grams") and newrow["measurement"]<28.0:
-# 	# 	newrow["measurement"]=newrow["measurement"]/5
-# 	# 	newrow["unit"]="T"
-# 	# 	newrow["unit"]="grams"
-# 	# elif newrow["unit"]==str("grams") and newrow["measurement"]>29.0:
-# 	# 	newrow["measurement"]=newrow["measurement"]/225
-# 	# 	newrow["unit"]="c"
-# 	# else:
-# 	# 	print "Mandy, something went horribly wrong!"
-# 	print newrow
-
-# # for finalamounts in ingredients:
-# # 	if finalamounts["unit"]==str("grams")>29:
-# # 		finalamounts["measurement"]=finalamounts["measurement"]/225
-# # 		finalamounts["unit"]="c"
-# # 	elif finalamounts["unit"]==str("grams")<6:
-# # 		finalamounts["measurement"]=finalamounts["measurement"]/14
-# # 		finalamounts["unit"]="t"
-# # 	elif finalamounts["unit"]==str("grams")=<28:
-# # 		finalamounts["measurement"]=finalamounts["measurement"]/5
-# # 		finalamounts["unit"]="T"
-# # 	else:
-# # 		print "Mandy, something went horribly wrong!"
-# # 	print finalamounts
-
-
+# final_dict = final_conversion(recipe_dic)
