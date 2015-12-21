@@ -1,11 +1,14 @@
+import os
+from flask import Flask, render_template
+
 #instructions
 text = """
 ***************************************\n
-\n
-\n
-\n
-\n
-\n
+
+
+
+
+
 ***************************************\n
 \n
 """
@@ -127,11 +130,12 @@ def final_conversion(dictionary):
 			print "WRONG!"
 		final_dict[keys] = final_values, unit
 	
-	return final_dict
-	print final_values
+	
 
+	print final_values
+	return final_dict
 print final_conversion(mug)
-final_conversion = final_conversion(mug)
+final_dict = final_conversion(mug)
 
 
 #FLAAAAASK
@@ -139,12 +143,18 @@ final_conversion = final_conversion(mug)
 from flask import Flask, render_template
 app = Flask(__name__) 
 
-@app.route('/hello/')
+@app.route('/')
 def hello():
     msg=text
-    conversion = final_conversion
-    print final_conversion
-    return render_template('hello.html', msg=msg, conversion=conversion)
+    final_dict = final_conversion(mug)
+    ingredients = final_dict.keys()
+    print ingredients
+    measurements = final_dict.values()
+    print measurements
+    return render_template('index.html', msg=msg, ingredients=ingredients, measurements=measurements)
 
 if __name__=='__main__':
-    app.run(debug=True)
+    #IP settings to run on cloud9
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)), debug=True) #for running in cloud9
+    #IP settings to run on local machine
+    # app.run(debug=True, port=5000)  
