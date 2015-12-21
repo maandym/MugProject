@@ -25,7 +25,7 @@ def csv_recipeDict():
 	with open("VanillaCake.csv", "rb") as csvin:
 		reader = csv.DictReader(csvin)
 		
-		recipe_dic = { "directions": " "}
+		recipe_dic = { "directions": ""}
 		# recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
@@ -128,20 +128,21 @@ def final_conversion(dictionary):
 			print "WRONG!"
 		final_dict[keys] = final_values, unit
 	
-	return final_dict
 	print final_values
+	return final_dict
+	
 
-def final_print(dictionary):
+def final_print(dictionary1, dictionary2):
 	for ingredients, values in recipe_dic.items():
 		if ingredients != "directions":
 			print ingredients, values, "\n"
-	for ingredients, values in mug.items():
-		if ingredients != "directions":
-			print ingredients, values
+	for key, items in final_dict.items():
+		print key, items
 
-print final_print(recipe_dic)
-print final_conversion(mug)
-final_conversion = final_conversion(mug)
+final_dict = final_conversion(mug)
+final_print(recipe_dic, final_dict)
+
+# final_conversion = final_conversion(mug)
 
 print recipe_dic["directions"]
 
