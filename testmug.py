@@ -23,6 +23,7 @@ else:
         cake = "VanillaCake.csv"
     if option==2: 
     	print "You have chosen to make the Chocolate Cake, here is the recipe:"
+    	cake = "ChocolateCake.csv"
     if option==3: 
     	print "You have chosen to make the Red Velvet Cake, here is the recipe:"
     if option==4: 
