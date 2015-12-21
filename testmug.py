@@ -1,12 +1,18 @@
 #instructions
+msg = """
+***************************************
 
-print "***************************************"
-print
-print
-print
-print
-print "***************************************"
-print "\n"
+
+
+
+***************************************
+\n
+"""
+#conditionals for users
+
+
+
+
 
 #import recipe
 
@@ -19,14 +25,14 @@ def csv_recipeDict():
 	with open("VanillaCake.csv", "rb") as csvin:
 		reader = csv.DictReader(csvin)
 		
-		recipe_dic = { }
+		recipe_dic = { "directions": " "}
 		# recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
 			recipe_dic[row["Ingredient"]] = float(row["Measurement"]), row["Unit"]
-			recipe_dic["directions"] = row["Directions"] + " ",
+			recipe_dic["directions"] = recipe_dic["directions"] + row["Directions"] + " "
 	
-	print recipe_dic		
+	# print recipe_dic
  	return recipe_dic
 
 
@@ -51,11 +57,10 @@ def convert_to_grams(dictionary):
 		if values != "directions":
 			grams = "grams"
 		grams_dict[keys] = gram_values, grams
-# FIX DIRECTIONS SECTION
 	return grams_dict
 
 grams_dict = convert_to_grams(recipe_dic)
-print grams_dict	
+# print grams_dict	
 			
 #sum all grams
 
@@ -97,25 +102,27 @@ def mug(dictionary):
 	return mug
 
 mug = mug(grams_dict)
-print mug
-print "\n"
+# print mug
+# print "\n"
 
 
 #convert back to imperial
 
 def final_conversion(dictionary):
 	final_dict = {}
+	recipe_dic= csv_recipeDict()
+
 	for keys, values in mug.items():
 		# print keys
 		# print values
 		if values[0]<6.0:
-			final_values=values[0]/5
+			final_values= float("%.2f" % float(values[0]/5))
 			unit="t"
 		elif values[0]<28.0:
-			final_values=values[0]/14
+			final_values= float("%.2f" % float(values[0]/14))
 			unit="T"
 		elif values[0]>28.1:
-			final_values=values[0]/225
+			final_values= float("%.2f" % float(values[0]/225))
 			unit="c"
 		else:
 			print "WRONG!"
@@ -124,4 +131,17 @@ def final_conversion(dictionary):
 	return final_dict
 	print final_values
 
+def final_print(dictionary):
+	for ingredients, values in recipe_dic.items():
+		if ingredients != "directions":
+			print ingredients, values, "\n"
+	for ingredients, values in mug.items():
+		if ingredients != "directions":
+			print ingredients, values
+
+print final_print(recipe_dic)
 print final_conversion(mug)
+final_conversion = final_conversion(mug)
+
+print recipe_dic["directions"]
+

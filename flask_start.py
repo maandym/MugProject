@@ -1,12 +1,18 @@
 #instructions
+text = """
+***************************************\n
+\n
+\n
+\n
+\n
+\n
+***************************************\n
+\n
+"""
+#conditionals for users
 
-print "***************************************"
-print
-print
-print
-print
-print "***************************************"
-print "\n"
+
+
 
 #import recipe
 
@@ -135,7 +141,7 @@ app = Flask(__name__)
 
 @app.route('/hello/')
 def hello():
-    msg="therere"
+    msg=text
     conversion = final_conversion
     print final_conversion
     return render_template('hello.html', msg=msg, conversion=conversion)
