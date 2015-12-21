@@ -1,12 +1,12 @@
 #instructions
 
-# print "***************************************"
-# print
-# print
-# print
-# print
-# print "***************************************"
-# print "\n"
+print "***************************************"
+print
+print
+print
+print
+print "***************************************"
+print "\n"
 
 #import recipe
 
@@ -96,8 +96,6 @@ def mug(dictionary):
 			mug[keys] = mug_values
 		else:
 			pass
-	# 	mug[keys]=values[0]*multiplier
-	# print mug
 	return mug
 
 print mug(grams_dict)
@@ -106,23 +104,23 @@ print mug(grams_dict)
 
 #convert back to imperial
 
-# def final_conversion(dictionary):
-# 	final_dict = {}
-# 	for keys, values in recipe_dic.items():
-# 		if keys != "directions":
-# 			if values[1]=="grams" and values[1]<6.0:
-# 				gram_values=values[0]*multiplier
-# 			elif values[1]=="grams" and values[1]<28.0:
-# 				gram_values=values[0]*multiplier
-# 			elif values[1]=="grams" and values[1]>28.1:
-# 				gram_values=values[0]*multiplier
-# 			else:
-# 				print values
-# 		final_dict[keys] = final_values
+def final_conversion(dictionary):
+	final_dict = {}
+	for keys, values in recipe_dic.items():
+		if keys != "directions":
+			if values[1]=="grams" and values[1]<6.0:
+				gram_values=values[0]*multiplier
+			elif values[1]=="grams" and values[1]<28.0:
+				gram_values=values[0]*multiplier
+			elif values[1]=="grams" and values[1]>28.1:
+				gram_values=values[0]*multiplier
+			else:
+				print values
+		final_dict[keys] = final_values
 	
-# 	return final_dict
+	return final_dict
 
-# final_dict = final_conversion(recipe_dic)
+final_dict = final_conversion(recipe_dic)
 			
 
 	
