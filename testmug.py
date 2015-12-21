@@ -88,33 +88,40 @@ multiplier = multiplier(total_grams)
 def mug(dictionary):
 	mug = {}
 	for keys, values in grams_dict.items():
-		if keys != "directions":
+		if keys != "directions" and values != "directions":
 			mug_values = values[0]*multiplier
-			mug[keys] = mug_values
+			grams = "grams"
+			mug[keys] = mug_values, grams
 		else:
 			pass
 	return mug
 
-print mug(grams_dict)
-
+mug = mug(grams_dict)
+print mug
+print "\n"
 
 
 #convert back to imperial
 
-# def final_conversion(dictionary):
-# 	final_dict = {}
-# 	for keys, values in recipe_dic.items():
-# 		if keys != "directions":
-# 			if values[1]=="grams" and values[1]<6.0:
-# 				gram_values=values[0]*multiplier
-# 			elif values[1]=="grams" and values[1]<28.0:
-# 				gram_values=values[0]*multiplier
-# 			elif values[1]=="grams" and values[1]>28.1:
-# 				gram_values=values[0]*multiplier
-# 			else:
-# 				print values
-# 		final_dict[keys] = final_values
+def final_conversion(dictionary):
+	final_dict = {}
+	for keys, values in mug.items():
+		# print keys
+		# print values
+		if values[0]<6.0:
+			final_values=values[0]/5
+			unit="t"
+		elif values[0]<28.0:
+			final_values=values[0]/14
+			unit="T"
+		elif values[0]>28.1:
+			final_values=values[0]/225
+			unit="c"
+		else:
+			print "WRONG!"
+		final_dict[keys] = final_values, unit
 	
-# 	return final_dict
+	return final_dict
+	print final_values
 
-# final_dict = final_conversion(recipe_dic)
+print final_conversion(mug)
