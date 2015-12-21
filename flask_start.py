@@ -151,7 +151,7 @@ def hello():
     print ingredients
     measurements = final_dict.values()
     print measurements
-    return render_template('index.html', msg=msg, ingredients=ingredients, measurements=measurements)
+    return render_template('index.html', msg=msg, ingredients=ingredients,  measurements=measurements, final_dict=final_dict)
 
 if __name__=='__main__':
     #IP settings to run on cloud9
