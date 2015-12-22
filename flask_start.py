@@ -1,19 +1,41 @@
-import os
-from flask import Flask, render_template
-
 #instructions
-text = """
-***************************************\n
-
-
-
-
-
+msg = """
 ***************************************\n
 \n
+WELCOME TO 
+\n
+\n
+***************************************\n
+\n
+\n
+
 """
 #conditionals for users
 
+
+option = 0
+while option <1 :
+    option = int(raw_input("Please choose a cake recipe: "))
+    print option
+    # print "Sorry, I didn't understand that."
+    # print "You did not choose a valid option. Please try again."
+else:
+    if option==1:
+        print "You have chosen to make the Vanilla Cake, here is the recipe:"
+        cake = "VanillaCake.csv"
+    if option==2: 
+    	print "You have chosen to make the Chocolate Cake, here is the recipe:"
+    	cake = "ChocolateCake.csv"
+    if option==3: 
+    	print "You have chosen to make the Red Velvet Cake, here is the recipe:"
+    	cake = "RedVelvetCake.csv"
+    if option==4: 
+    	print "You have chosen to make the Butter Cake, here is the recipe:"
+    	cake = "ButterCake.csv"
+    if option==5: 
+        print "You have chosen to make the Pound Cake, here is the recipe:"
+        cake = "PoundCake.csv"
+    	
 
 
 
@@ -25,17 +47,17 @@ import csv
 
 def csv_recipeDict():
 	
-	with open("VanillaCake.csv", "rb") as csvin:
+	with open(cake, "rb") as csvin:
 		reader = csv.DictReader(csvin)
 		
-		recipe_dic = { }
+		recipe_dic = { "directions": ""}
 		# recipe_dic = { "directions": ""}
 		for row in reader:
 			#print type(row)
 			recipe_dic[row["Ingredient"]] = float(row["Measurement"]), row["Unit"]
-			recipe_dic["directions"] = row["Directions"] + " ",
+			recipe_dic["directions"] = recipe_dic["directions"] + row["Directions"] + " "
 	
-	print recipe_dic		
+	# print recipe_dic
  	return recipe_dic
 
 
@@ -60,11 +82,10 @@ def convert_to_grams(dictionary):
 		if values != "directions":
 			grams = "grams"
 		grams_dict[keys] = gram_values, grams
-# FIX DIRECTIONS SECTION
 	return grams_dict
 
 grams_dict = convert_to_grams(recipe_dic)
-print grams_dict	
+# print grams_dict	
 			
 #sum all grams
 
@@ -106,36 +127,51 @@ def mug(dictionary):
 	return mug
 
 mug = mug(grams_dict)
-print mug
-print "\n"
+# print mug
+# print "\n"
 
 
 #convert back to imperial
 
 def final_conversion(dictionary):
 	final_dict = {}
+	recipe_dic= csv_recipeDict()
+
 	for keys, values in mug.items():
 		# print keys
 		# print values
 		if values[0]<6.0:
-			final_values=values[0]/5
+			final_values= float("%.2f" % float(values[0]/5))
 			unit="t"
 		elif values[0]<28.0:
-			final_values=values[0]/14
+			final_values= float("%.2f" % float(values[0]/14))
 			unit="T"
 		elif values[0]>28.1:
-			final_values=values[0]/225
+			final_values= float("%.2f" % float(values[0]/225))
 			unit="c"
 		else:
 			print "WRONG!"
 		final_dict[keys] = final_values, unit
 	
+	print final_values
+	print "\n"
+	return final_dict
 	
 
-	print final_values
-	return final_dict
-print final_conversion(mug)
+def final_print(dictionary1, dictionary2):
+	for ingredients, values in recipe_dic.items():
+		if ingredients != "directions":
+			print ingredients, values, "\n"
+	for key, items in final_dict.items():
+		print key, items
+
 final_dict = final_conversion(mug)
+final_print(recipe_dic, final_dict)
+
+# final_conversion = final_conversion(mug)
+
+print recipe_dic["directions"]
+
 
 
 #FLAAAAASK

@@ -1,12 +1,14 @@
 #instructions
 msg = """
-***************************************
-
-
-
-
-***************************************
+***************************************\n
 \n
+WELCOME TO 
+\n
+\n
+***************************************\n
+\n
+\n
+
 """
 #conditionals for users
 
@@ -15,8 +17,8 @@ option = 0
 while option <1 :
     option = int(raw_input("Please choose a cake recipe: "))
     print option
-    print "Sorry, I didn't understand that."
-    print "You did not choose a valid option. Please try again."
+    # print "Sorry, I didn't understand that."
+    # print "You did not choose a valid option. Please try again."
 else:
     if option==1:
         print "You have chosen to make the Vanilla Cake, here is the recipe:"
@@ -26,10 +28,13 @@ else:
     	cake = "ChocolateCake.csv"
     if option==3: 
     	print "You have chosen to make the Red Velvet Cake, here is the recipe:"
+    	cake = "RedVelvetCake.csv"
     if option==4: 
     	print "You have chosen to make the Butter Cake, here is the recipe:"
+    	cake = "ButterCake.csv"
     if option==5: 
         print "You have chosen to make the Pound Cake, here is the recipe:"
+        cake = "PoundCake.csv"
     	
 
 
@@ -149,6 +154,7 @@ def final_conversion(dictionary):
 		final_dict[keys] = final_values, unit
 	
 	print final_values
+	print "\n"
 	return final_dict
 	
 
