@@ -1,5 +1,5 @@
 #instructions
-msg = """
+text = """
 ***************************************\n
 \n
 WELCOME TO 
@@ -174,9 +174,11 @@ print recipe_dic["directions"]
 
 
 
+
 #FLAAAAASK
 
 from flask import Flask, render_template
+import os
 app = Flask(__name__) 
 
 @app.route('/')

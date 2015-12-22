@@ -171,4 +171,3 @@ final_print(recipe_dic, final_dict)
 # final_conversion = final_conversion(mug)
 
 print recipe_dic["directions"]
-
