@@ -184,12 +184,13 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     msg=text
+    recipe_dic = csv_recipeDict()
     final_dict = final_conversion(mug)
     ingredients = final_dict.keys()
-    print ingredients
     measurements = final_dict.values()
-    print measurements
-    return render_template('index.html', msg=msg, ingredients=ingredients,  measurements=measurements, final_dict=final_dict)
+    directions  = recipe_dic["directions"]
+    print directions
+    return render_template('index.html', msg=msg, ingredients=ingredients,  measurements=measurements, final_dict=final_dict, directions=directions)
 
 if __name__=='__main__':
     #IP settings to run on cloud9
