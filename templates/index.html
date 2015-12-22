@@ -23,20 +23,24 @@
 <p> <br>{{msg}} <br> </p> 
 
  <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-5">
       {% for row in ingredients %}
           <p>{{ row }}</p>
         {% endfor %}
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-5">
       {% for item in measurements %}
           <p>{{ item }}</p>
         {% endfor %}
   </div>
+  <div class="col-sm-1"></div>
 </div> <!--end row div-->
+<div class = "row">
+  {{directions}}
+</div>
 
-
-<p>
+<p
 	<iframe style=".data" src="//giphy.com/embed/7o3hoeLWZY1LG" width="480" height="294" frameBorder="0" class="giphy-embed" allowFullScreen></p>
 
 
