@@ -1,14 +1,26 @@
 #instructions
-msg = """
-***************************************\n
-\n
-WELCOME TO 
-\n
-\n
-***************************************\n
-\n
-\n
 
+print """
+********************************************\n
+	WELCOME TO THE MUG PROJECT\n
+	   By Mandy C. Souza\n
+********************************************\n
+
+N/A: This is a work in progress. In the future, you will be able to input your own recipe, and the app will scale down to a single serving. Not just for cakes, but any meal you'd like to make.\n
+
+SAFETY:\n
+Please make sure your mug can withstand high temperatures. Most mugs can (as they're made of glass, pure ceramic or procelain), but some can only hold hot liquids up to 212F. If you are not sure about what you have home, a good alternative is using a small (8oz and up) MASON JAR. Those are made to take high tempartures and will not bulge or break with heat.
+Be careful when touching either mug or mason jar after baking. None of them will look hot, but they will be!
+Happy baking!
+
+INSTRUCTIONS:\n
+Please type the number for the recipe you would like to bake.
+
+RECIPES TO CHOOSE FROM:
+
+1. 	VANILLA CAKE\n
+2. 	CHOCOLATE CAKE\n
+3. 	RED VELVET CAKE\n
 """
 #conditionals for users
 
@@ -107,7 +119,7 @@ total_grams = total_grams(recipe_dic)
 #find the multiplier
 
 def multiplier(dictionary):
-	multiplier = 210/total_grams
+	multiplier = 200/total_grams
 	return multiplier
 
 multiplier = multiplier(total_grams)
