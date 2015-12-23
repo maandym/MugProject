@@ -41,12 +41,14 @@ else:
     if option==3: 
     	print "\n\nYou have chosen to make the Red Velvet Cake, here is the recipe:"
     	cake = "RedVelvetCake.csv"
-    if option==4: 
-    	print "\n\nYou have chosen to make the Butter Cake, here is the recipe:"
-    	cake = "ButterCake.csv"
-    if option==5: 
-        print "\n\nYou have chosen to make the Pound Cake, here is the recipe:"
-        cake = "PoundCake.csv"
+    # if option==4: 
+    # 	print "\n\nYou have chosen to make the Butter Cake, here is the recipe:"
+    # 	cake = "ButterCake.csv"
+    # if option==5: 
+    #     print "\n\nYou have chosen to make the Pound Cake, here is the recipe:"
+    #     cake = "PoundCake.csv"
+    else:
+     	print "\n\nI could not find this recipe. Please choose a valid number next time. Goodbye.\n\n\n"
 
 
 #import recipe
