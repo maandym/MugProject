@@ -28,27 +28,25 @@ RECIPES TO CHOOSE FROM:
 option = 0
 while option <1 :
     option = int(raw_input("Please choose a cake recipe: "))
-    print option
+    # print option
     # print "Sorry, I didn't understand that."
     # print "You did not choose a valid option. Please try again."
 else:
     if option==1:
-        print "You have chosen to make the Vanilla Cake, here is the recipe:"
+        print "\n\nYou have chosen to make the Vanilla Cake, here is the recipe:"
         cake = "VanillaCake.csv"
     if option==2: 
-    	print "You have chosen to make the Chocolate Cake, here is the recipe:"
+    	print "\n\nYou have chosen to make the Chocolate Cake, here is the recipe:"
     	cake = "ChocolateCake.csv"
     if option==3: 
-    	print "You have chosen to make the Red Velvet Cake, here is the recipe:"
+    	print "\n\nYou have chosen to make the Red Velvet Cake, here is the recipe:"
     	cake = "RedVelvetCake.csv"
     if option==4: 
-    	print "You have chosen to make the Butter Cake, here is the recipe:"
+    	print "\n\nYou have chosen to make the Butter Cake, here is the recipe:"
     	cake = "ButterCake.csv"
     if option==5: 
-        print "You have chosen to make the Pound Cake, here is the recipe:"
+        print "\n\nYou have chosen to make the Pound Cake, here is the recipe:"
         cake = "PoundCake.csv"
-    	
-
 
 
 #import recipe
@@ -90,7 +88,8 @@ def convert_to_grams(dictionary):
 			elif values[1]=="singles":
 				gram_values=(values[0]*14)*4
 			else:
-				print values
+				# print values
+				break
 		if values != "directions":
 			grams = "grams"
 		grams_dict[keys] = gram_values, grams
@@ -145,6 +144,7 @@ mug = mug(grams_dict)
 
 #convert back to imperial
 
+
 def final_conversion(dictionary):
 	final_dict = {}
 	recipe_dic= csv_recipeDict()
@@ -165,21 +165,26 @@ def final_conversion(dictionary):
 			print "WRONG!"
 		final_dict[keys] = final_values, unit
 	
-	print final_values
+	# print final_values
 	print "\n"
 	return final_dict
 	
 
-def final_print(dictionary1, dictionary2):
+def final_print(dictionary1, dictionary2):    	
+	print "\nORIGINAL RECIPE: \n"
 	for ingredients, values in recipe_dic.items():
 		if ingredients != "directions":
 			print ingredients, values, "\n"
+	print "\nMUG SIZE MEASUREMENTS: \n"
 	for key, items in final_dict.items():
-		print key, items
+		print key, items, "\n"
 
 final_dict = final_conversion(mug)
 final_print(recipe_dic, final_dict)
 
 # final_conversion = final_conversion(mug)
+
+
+
 
 print recipe_dic["directions"]
