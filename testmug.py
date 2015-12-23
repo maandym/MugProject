@@ -16,6 +16,11 @@ Happy baking!
 INSTRUCTIONS:\n
 Please type the number for the recipe you would like to bake.
 
+If in doubt, choose to round up to the nearest quarter or eighth.
+Here are a few lesser known measurements thats are useful for small scales:
+Smidgen 1/32 tsp. (0.03 t); Pinch 1/16 tsp. (0.06 t); and Dash 1/8 tsp (0.12 t).
+
+
 RECIPES TO CHOOSE FROM:
 
 1. 	VANILLA CAKE\n
